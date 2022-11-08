@@ -1,18 +1,15 @@
 <template>
     <section id="imgTextType" class="imgText__wrap content" :class="attr">
-        <h2 class="blind">NEW ARRIVALS</h2>
+        <h2 class="blind">{{top[0].text}}</h2>
         <div class="imgText__inner" :class="layout">
             <div class="imgText__txt">
-                <span>NEW ARRIVALS</span>
-                <h3>NEW ARRIVALS</h3>
-                <p>새로움의 시작</p>
-                <ul>
-                    <li><a href="#">All</a></li>
-                    <li><a href="#">Shirt</a></li>
-                    <li><a href="#">Knit</a></li>
-                    <li><a href="#">T-Shirt</a></li>
-                    <li><a href="#">Jacket</a></li>
-                    <li><a href="#">Pants</a></li>
+                <span>{{top[0].text}}</span>
+                <h3>{{top[0].text}}</h3>
+                <p>{{top[1].text}}</p>
+                    <ul>
+                        <li v-for="title in imgText" v-bind:key="title.text">
+                        <a href="/">{{title.text}}</a>
+                    </li>
                 </ul>
             </div>
             <div class="imgText__img img1">
@@ -30,7 +27,23 @@ export default {
   props: {
     attr: String,
     layout: String
-  }
+  },
+  data: function () {
+    return {
+      top: [
+        { text: "NEW ARRIVALS"},
+        { text: "새로움의 시작"},
+      ],
+      imgText: [
+        { text: "All" },
+        { text: "Shirt" },
+        { text: "Knit" },
+        { text: "T-Shirt" },
+        { text: "Jacket" },
+        { text: "Pants" },
+      ],
+    };
+  },
 }
 </script>
 

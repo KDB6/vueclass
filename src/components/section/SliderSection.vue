@@ -16,45 +16,51 @@
                 :modules="modules"
                 class="mySwiper"
             >
-                <swiper-slide>
-                    <div className="desc">
-                        <span>Brand</span>
-                        <h3>22AW Lookbook</h3>
+            <swiper-slide v-for="slider in sliders" v-bind:key="slider.text">
+                <div class="swiper-slide" :class="slider.className">
+                    <div class="desc">
+                        <span>{{ slider.Brand }}</span>
+                        <h3>{{ slider.title }}</h3>
                         <p>
-                            포터리는 현대사회에 알맞는 유니폼을 제안하고자 합니다.
+                        {{ slider.desc}}
                         </p>
-                        <div className="btn">
-                            <a href="/">Read more</a>
-                            <a href="/" className="black">Site</a>
-                        </div>
-                    </div>    
-                </swiper-slide>
-                <swiper-slide>
-                    <div className="desc">
-                        <span>Brand</span>
-                        <h3>22AW Lookbook</h3>
-                        <p>
-                            포터리는 현대사회에 알맞는 유니폼을 제안하고자 합니다.
-                        </p>
-                        <div className="btn">
-                            <a href="/">Read more</a>
-                            <a href="/" className="black">Site</a>
+                        <div class="btn">
+                            <a href="/">{{ slider.btn01 }}</a>
+                            <a href="/" class="black"> {{ slider.btn02 }} </a>
                         </div>
                     </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div className="desc">
-                        <span>Brand</span>
-                        <h3>22AW Lookbook</h3>
+                </div>
+            </swiper-slide>
+            <swiper-slide v-for="slider in sliders" v-bind:key="slider.text">
+                <div class="swiper-slide" :class="slider.className">
+                    <div class="desc">
+                        <span>{{slider.Brand}}</span>
+                        <h3>{{slider.title}}</h3>
                         <p>
-                            포터리는 현대사회에 알맞는 유니폼을 제안하고자 합니다.
+                        {{slider.desc}}
                         </p>
-                        <div className="btn">
-                            <a href="/">Read more</a>
-                            <a href="/" className="black">Site</a>
+                        <div class="btn">
+                            <a href="/">{{slider.btn01}}</a>
+                            <a href="/" class="black"> {{slider.btn02}} </a>
                         </div>
                     </div>
-                </swiper-slide>
+                </div>
+            </swiper-slide>
+            <swiper-slide v-for="slider in sliders" v-bind:key="slider.text">
+                <div class="swiper-slide" :class="slider.className">
+                    <div class="desc">
+                        <span>{{slider.Brand}}</span>
+                        <h3>{{slider.title}}</h3>
+                        <p>
+                            {{slider.desc}}
+                        </p>
+                        <div class="btn">
+                            <a href="/">{{slider.btn01}}</a>
+                            <a href="/" class="black"> {{slider.btn02}} </a>
+                        </div>
+                    </div>
+                </div>
+            </swiper-slide>
             </swiper>
         </div>
     </section>
@@ -76,8 +82,24 @@ export default {
       modules: [Autoplay, Pagination, Navigation],
     };
   },
+  data: function () {
+    return {
+      sliders: [
+        {
+          className: "desc",
+          Brand: "Brand",
+          title: "22AW Lookbook",
+          desc: "포터리는 현대사회에 알맞는 유니폼을 제안하고자 합니다.",
+          btn01: "Read more",
+          btn02: "Site",
+        },
+      ],
+    };
+  },
 };
 </script>
+
+
 
 <style>
 .slider__inner {
